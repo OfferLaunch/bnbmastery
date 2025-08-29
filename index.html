@@ -161,6 +161,8 @@
             cursor: pointer;
             position: relative;
             overflow: hidden;
+            text-decoration: none;
+            display: inline-block;
         }
         
         .btn-primary:hover {
@@ -191,6 +193,31 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+        }
+        
+        /* Video container styles */
+        .video-container {
+            position: relative;
+            width: 100%;
+        }
+        
+        .aspect-w-16 {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        }
+        
+        .aspect-h-9 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+        
+        #vidalytics-player {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a2a5e 0%, #111F46 100%);
         }
         
         /* Progress bars */
@@ -289,7 +316,8 @@
                             <a href="#process" class="nav-link">Process</a>
                             <a href="#testimonials" class="nav-link">Success Stories</a>
                             <a href="#faq" class="nav-link">FAQ</a>
-                            <button class="btn-primary">Get Started</button>
+                            <a href="#about" class="nav-link">About</a>
+                            <a href="https://go.bnbmastery.io/w/app?utm_source=website&utm_medium=nav&utm_campaign=main_nav&utm_content=get_started&utm_term=bnb_mastery" class="btn-primary">Get Started</a>
                         </div>
                     </div>
                 </div>
@@ -313,9 +341,9 @@
                         Start earning passive income without owning property.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <button class="btn-primary text-lg px-8 py-4">
+                        <a href="https://go.bnbmastery.io/w/app?utm_source=website&utm_medium=hero&utm_campaign=hero_section&utm_content=start_journey&utm_term=bnb_mastery" class="btn-primary text-lg px-8 py-4">
                             Start Your Journey
-                        </button>
+                        </a>
                         <button class="bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-12 border border-white/20 hover:bg-white/20 transition-all">
                             Learn More
                         </button>
@@ -323,22 +351,18 @@
                 </div>
                 <div class="animate-slide-in-right">
                     <div class="bg-white/10 backdrop-blur-sm rounded-24 p-8 border border-white/20">
-                        <div class="grid grid-cols-2 gap-6">
-                            <div class="text-center">
-                                <div class="stat-number mb-2" data-target="500">0</div>
-                                <p class="text-gray-300">Properties Managed</p>
-                            </div>
-                            <div class="text-center">
-                                <div class="stat-number mb-2" data-target="2.5">0</div>
-                                <p class="text-gray-300">Million in Revenue</p>
-                            </div>
-                            <div class="text-center">
-                                <div class="stat-number mb-2" data-target="95">0</div>
-                                <p class="text-gray-300">Success Rate</p>
-                            </div>
-                            <div class="text-center">
-                                <div class="stat-number mb-2" data-target="12">0</div>
-                                <p class="text-gray-300">Months Average</p>
+                        <div class="text-center mb-6">
+                            <h3 class="text-2xl font-bold text-white mb-4">Watch Our Story</h3>
+                            <p class="text-gray-300 mb-6">See how Killian built BNB Mastery from $27,000 to millions</p>
+                        </div>
+                        <div class="video-container relative w-full max-w-2xl mx-auto">
+                            <div class="aspect-w-16 aspect-h-9 bg-gray-800 rounded-16 overflow-hidden">
+                                <div id="vidalytics-player" class="w-full h-full flex items-center justify-center">
+                                    <div class="text-center text-white">
+                                        <i class="fas fa-play-circle text-6xl text-brand-orange mb-4"></i>
+                                        <p class="text-lg">Video Loading...</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -547,14 +571,46 @@
         </div>
     </section>
 
+    <!-- About Us Section -->
+    <section id="about" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="animate-slide-in-left">
+                    <h2 class="text-4xl font-bold text-brand-dark-blue mb-6">Meet Our Founder</h2>
+                    <h3 class="text-2xl font-semibold text-brand-orange mb-4">Killian</h3>
+                    <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+                        Killian's journey into real estate started in 2021 with nothing more than determination and $27,000 he had saved while living with his parents. Just days before his 25th birthday, he poured every dollar into the down payment on his first home—finally achieving his goal of becoming a property owner.
+                    </p>
+                    <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+                        That challenge became the turning point. Instead of walking away, Killian discovered Airbnb arbitrage—a business model that allowed him to transform rental properties into profitable short-term rentals without needing to own them outright. What began as a survival strategy quickly grew into a scalable business.
+                    </p>
+                    <p class="text-lg text-gray-700 mb-8 leading-relaxed">
+                        Today, Killian is the founder of BNB Mastery, where he helps others replicate the exact system that turned his situation around. His mission is simple: to show aspiring entrepreneurs and professionals that you don't need massive capital or years of experience to build a cash-flowing portfolio—you need the right model and the right guidance.
+                    </p>
+                    <a href="https://go.bnbmastery.io/w/app?utm_source=website&utm_medium=about&utm_campaign=about_section&utm_content=learn_more&utm_term=bnb_mastery" class="btn-primary">
+                        Learn More About Killian
+                    </a>
+                </div>
+                <div class="animate-slide-in-right">
+                    <div class="relative">
+                        <img src="assets/images/JCA02734.jpg" alt="Killian - Founder of BNB Mastery" class="w-full h-auto rounded-24 shadow-2xl">
+                        <div class="absolute -bottom-6 -right-6 bg-brand-orange text-white px-6 py-3 rounded-16 shadow-lg">
+                            <p class="font-semibold">Founder & CEO</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="py-20 gradient-bg">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-4xl font-bold text-white mb-8">Ready to Transform Your Financial Future?</h2>
             <p class="text-xl text-gray-300 mb-8">Join hundreds of successful entrepreneurs who've built profitable Airbnb arbitrage businesses</p>
-            <button class="btn-primary text-lg px-12 py-4">
-                Start Your Journey Today
-            </button>
+                                    <a href="https://go.bnbmastery.io/w/app?utm_source=website&utm_medium=cta&utm_campaign=final_cta&utm_content=start_journey_today&utm_term=bnb_mastery" class="btn-primary text-lg px-12 py-4">
+                            Start Your Journey Today
+                        </a>
         </div>
     </section>
 
