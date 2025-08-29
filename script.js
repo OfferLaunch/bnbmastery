@@ -1,146 +1,260 @@
-// Simple smooth scrolling that works immediately
+// Modern Interactive JavaScript for BNB Mastery
+
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize all interactive features
+    initNavigation();
+    initAnimatedCounters();
+    initFAQAccordion();
+    initScrollAnimations();
+    initInteractiveCards();
+    initProgressBars();
+});
+
+// Navigation functionality
+function initNavigation() {
+    const nav = document.querySelector('.floating-nav');
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', function() {
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll > 50) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+        
+        lastScroll = currentScroll;
+    });
+
+    // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
-                target.scrollIntoView({ 
+                target.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
                 });
             }
         });
     });
-});
+}
 
-// Handle active navigation state
-function updateActiveNavLink() {
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
-    let currentSection = '';
-    const scrollPosition = window.pageYOffset + 100; // Add offset for better detection
+// Animated counters
+function initAnimatedCounters() {
+    const counters = document.querySelectorAll('.stat-number');
+    
+    const animateCounter = (counter) => {
+        const target = parseInt(counter.getAttribute('data-target'));
+        const duration = 2000; // 2 seconds
+        const step = target / (duration / 16); // 60fps
+        let current = 0;
+        
+        const timer = setInterval(() => {
+            current += step;
+            if (current >= target) {
+                current = target;
+                clearInterval(timer);
+            }
+            
+            if (target >= 1000) {
+                counter.textContent = (current / 1000).toFixed(1) + 'M';
+            } else {
+                counter.textContent = Math.floor(current);
+            }
+        }, 16);
+    };
 
-    // If at the very top, set Home as active
-    if (window.pageYOffset < 100) {
-        navLinks.forEach(link => link.classList.remove('active'));
-        const homeLink = document.querySelector('.nav-link[href="#"]');
-        if (homeLink) homeLink.classList.add('active');
-        return;
-    }
+    // Intersection Observer for counters
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounter(entry.target);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
 
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        const sectionBottom = sectionTop + sectionHeight;
-        if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-            currentSection = section.getAttribute('id');
-        }
-    });
+    counters.forEach(counter => observer.observe(counter));
+}
 
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').slice(1) === currentSection) {
-            link.classList.add('active');
-        }
+// FAQ Accordion functionality
+function initFAQAccordion() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+        const icon = item.querySelector('.faq-icon');
+        
+        question.addEventListener('click', () => {
+            const isActive = answer.classList.contains('active');
+            
+            // Close all other FAQ items
+            faqItems.forEach(otherItem => {
+                const otherAnswer = otherItem.querySelector('.faq-answer');
+                const otherIcon = otherItem.querySelector('.faq-icon');
+                otherAnswer.classList.remove('active');
+                otherIcon.classList.remove('active');
+            });
+            
+            // Toggle current item
+            if (!isActive) {
+                answer.classList.add('active');
+                icon.classList.add('active');
+            }
+        });
     });
 }
 
-// Update active state on scroll with throttling
-let isScrolling = false;
-window.addEventListener('scroll', () => {
-    if (!isScrolling) {
-        window.requestAnimationFrame(() => {
-            updateActiveNavLink();
-            isScrolling = false;
+// Scroll animations
+function initScrollAnimations() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
         });
-        isScrolling = true;
+    }, observerOptions);
+
+    // Observe all sections for animation
+    document.querySelectorAll('section').forEach(section => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(30px)';
+        section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(section);
+    });
+}
+
+// Interactive cards hover effects
+function initInteractiveCards() {
+    const cards = document.querySelectorAll('.interactive-card');
+    
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-8px) scale(1.02)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+}
+
+// Progress bars animation
+function initProgressBars() {
+    const progressBars = document.querySelectorAll('.progress-fill');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const width = entry.target.style.width;
+                entry.target.style.width = '0%';
+                
+                setTimeout(() => {
+                    entry.target.style.width = width;
+                }, 500);
+                
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    progressBars.forEach(bar => observer.observe(bar));
+}
+
+// Button click handlers
+document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('btn-primary')) {
+        // Add button click animation
+        e.target.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+            e.target.style.transform = '';
+        }, 150);
+        
+        // Handle different button actions
+        const buttonText = e.target.textContent.toLowerCase();
+        
+        if (buttonText.includes('start') || buttonText.includes('journey')) {
+            // Scroll to contact form or open modal
+            console.log('Starting journey...');
+            // Add your lead capture logic here
+        } else if (buttonText.includes('learn')) {
+            // Scroll to features section
+            document.querySelector('#features').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
     }
 });
 
-// Update active state on page load
-window.addEventListener('load', updateActiveNavLink);
-
-// FAQ Accordion functionality
-document.querySelectorAll('#faq button').forEach(button => {
-    button.addEventListener('click', () => {
-        const content = button.nextElementSibling;
-        const isOpen = content.classList.contains('hidden');
-        
-        // Close all other accordion items
-        document.querySelectorAll('#faq button').forEach(otherButton => {
-            if (otherButton !== button) {
-                otherButton.nextElementSibling.classList.add('hidden');
-                otherButton.querySelector('i').classList.remove('fa-chevron-up');
-                otherButton.querySelector('i').classList.add('fa-chevron-down');
-            }
-        });
-
-        // Toggle current item
-        content.classList.toggle('hidden');
-        const icon = button.querySelector('i');
-        if (isOpen) {
-            icon.classList.remove('fa-chevron-down');
-            icon.classList.add('fa-chevron-up');
-        } else {
-            icon.classList.remove('fa-chevron-up');
-            icon.classList.add('fa-chevron-down');
-        }
-    });
-});
-
-// Intersection Observer for fade-in animations
-const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.1
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in');
-            entry.target.classList.remove('opacity-0', 'translate-y-4');
-            observer.unobserve(entry.target);
-        }
-    });
-}, observerOptions);
-
-// Add fade-in animation to sections
-document.querySelectorAll('section').forEach(section => {
-    section.style.opacity = '1'; // Ensure sections are visible by default
-    section.style.transform = 'translateY(0)'; // Reset transform
-    observer.observe(section);
+// Parallax effect for hero section
+window.addEventListener('scroll', function() {
+    const scrolled = window.pageYOffset;
+    const hero = document.querySelector('#home');
+    
+    if (hero) {
+        const rate = scrolled * -0.5;
+        hero.style.transform = `translateY(${rate}px)`;
+    }
 });
 
 // Mobile menu toggle (if needed)
-const mobileMenuButton = document.createElement('button');
-mobileMenuButton.className = 'md:hidden p-2';
-mobileMenuButton.innerHTML = '<i class="fas fa-bars"></i>';
-document.querySelector('nav .flex-shrink-0').appendChild(mobileMenuButton);
+function initMobileMenu() {
+    const mobileMenuButton = document.querySelector('.mobile-menu-button');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    
+    if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+    }
+}
 
-const mobileMenu = document.createElement('div');
-mobileMenu.className = 'md:hidden fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 ease-in-out';
-mobileMenu.innerHTML = `
-    <div class="p-4">
-        <button class="absolute top-4 right-4 p-2">
-            <i class="fas fa-times"></i>
-        </button>
-        <div class="mt-8 space-y-4">
-            <a href="#how-it-works" class="block text-gray-700 hover:text-gray-900">How It Works</a>
-            <a href="#course" class="block text-gray-700 hover:text-gray-900">Course</a>
-            <a href="#testimonials" class="block text-gray-700 hover:text-gray-900">Testimonials</a>
-            <a href="#faq" class="block text-gray-700 hover:text-gray-900">FAQ</a>
-            <a href="#cta" class="block bg-blue-600 text-white px-4 py-2 rounded-lg">Get Started</a>
-        </div>
-    </div>
-`;
-document.body.appendChild(mobileMenu);
+// Form validation (if forms are added later)
+function validateForm(form) {
+    const inputs = form.querySelectorAll('input[required], textarea[required]');
+    let isValid = true;
+    
+    inputs.forEach(input => {
+        if (!input.value.trim()) {
+            input.classList.add('error');
+            isValid = false;
+        } else {
+            input.classList.remove('error');
+        }
+    });
+    
+    return isValid;
+}
 
-mobileMenuButton.addEventListener('click', () => {
-    mobileMenu.classList.remove('translate-x-full');
-});
+// Utility functions
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
 
-mobileMenu.querySelector('button').addEventListener('click', () => {
-    mobileMenu.classList.add('translate-x-full');
-}); 
+// Optimized scroll handler
+const optimizedScrollHandler = debounce(function() {
+    // Add any scroll-based functionality here
+}, 16);
+
+window.addEventListener('scroll', optimizedScrollHandler);
+
+// Initialize mobile menu if needed
+initMobileMenu(); 

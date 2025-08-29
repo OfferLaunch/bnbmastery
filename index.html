@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BNB Mastery - Start Your Airbnb Arbitrage Business</title>
+    <title>BNB Mastery - Master Airbnb Arbitrage</title>
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/16x16.png">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -16,9 +16,11 @@
             --brand-bright-orange: #FF5715;
             --brand-dark-blue: #111F46;
         }
+        
         html {
             scroll-behavior: smooth;
         }
+        
         .brand-orange { color: var(--brand-orange); }
         .brand-bright-orange { color: var(--brand-bright-orange); }
         .brand-dark-blue { color: var(--brand-dark-blue); }
@@ -27,73 +29,103 @@
         .bg-brand-dark-blue { background-color: var(--brand-dark-blue); }
         .border-brand-orange { border-color: var(--brand-orange); }
         .bg-light-orange { background-color: rgba(250, 125, 40, 0.05); }
-
-        /* Navigation active state */
+        
+        /* Modern animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .animate-slide-in-left {
+            animation: slideInLeft 0.8s ease-out forwards;
+        }
+        
+        .animate-slide-in-right {
+            animation: slideInRight 0.8s ease-out forwards;
+        }
+        
+        /* Interactive elements */
+        .interactive-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+        
+        .interactive-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(250, 125, 40, 0.15);
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #111F46 0%, #1a2a5e 100%);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #FA7D28 0%, #FF5715 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Modern navigation */
         .nav-link {
             position: relative;
             color: #111F46;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
+            font-weight: 500;
         }
-
+        
         .nav-link:hover {
             color: #FA7D28;
         }
-
-        .nav-link.active {
-            color: #111F46;
-        }
-
-        .nav-link.active::after {
+        
+        .nav-link::after {
             content: '';
             position: absolute;
-            bottom: -2px;
+            bottom: -4px;
             left: 0;
-            width: 100%;
+            width: 0;
             height: 2px;
-            background-color: #111F46;
-            animation: underline 0.3s ease-out forwards;
+            background: linear-gradient(135deg, #FA7D28 0%, #FF5715 100%);
+            transition: width 0.3s ease;
         }
-
-        @keyframes underline {
-            from {
-                width: 0;
-            }
-            to {
-                width: 100%;
-            }
+        
+        .nav-link:hover::after {
+            width: 100%;
         }
-
-        /* Custom shadow styles */
-        .card-shadow {
-            box-shadow: 0 4px 6px -1px rgba(17, 31, 70, 0.1),
-                        0 2px 4px -1px rgba(17, 31, 70, 0.06),
-                        0 0 0 1px rgba(17, 31, 70, 0.1);
-            transition: all 0.3s ease;
-        }
-        .card-shadow:hover {
-            box-shadow: 0 10px 15px -3px rgba(17, 31, 70, 0.1),
-                        0 4px 6px -2px rgba(17, 31, 70, 0.05),
-                        0 0 0 1px rgba(17, 31, 70, 0.1);
-            transform: translateY(-2px);
-        }
-        .section-shadow {
-            box-shadow: 0 4px 6px -1px rgba(17, 31, 70, 0.1),
-                        0 2px 4px -1px rgba(17, 31, 70, 0.06);
-        }
-
-        /* Ensure sections are visible by default */
-        section {
-            opacity: 1 !important;
-            transform: none !important;
-            transition: opacity 0.3s ease-in-out;
-        }
-
-        .fade-in {
-            opacity: 1 !important;
-            transform: translateY(0) !important;
-        }
-
-        /* Floating navigation styles */
+        
+        /* Floating navigation */
         .floating-nav {
             position: fixed;
             top: 1rem;
@@ -104,35 +136,142 @@
             z-index: 50;
             transition: all 0.3s ease;
         }
+        
         .floating-nav.scrolled {
             top: 0.5rem;
         }
+        
         .nav-container {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Modern buttons */
+        .btn-primary {
+            background: linear-gradient(135deg, #FA7D28 0%, #FF5715 100%);
+            color: white;
+            padding: 12px 32px;
             border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-                        0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(250, 125, 40, 0.3);
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        
+        /* Stats counter animation */
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #FA7D28 0%, #FF5715 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Progress bars */
+        .progress-bar {
+            height: 6px;
+            background: rgba(250, 125, 40, 0.2);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(135deg, #FA7D28 0%, #FF5715 100%);
+            border-radius: 3px;
+            transition: width 1s ease;
+        }
+        
+        /* Testimonial cards */
+        .testimonial-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(250, 125, 40, 0.1);
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(250, 125, 40, 0.15);
+        }
+        
+        /* FAQ accordion */
+        .faq-item {
+            border: 1px solid rgba(250, 125, 40, 0.2);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            border-color: #FA7D28;
+            box-shadow: 0 5px 15px rgba(250, 125, 40, 0.1);
+        }
+        
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #111F46;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background: rgba(250, 125, 40, 0.05);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 1.5rem;
+        }
+        
+        .faq-answer.active {
+            max-height: 200px;
+            padding: 0 1.5rem 1.5rem;
+        }
+        
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-icon.active {
+            transform: rotate(180deg);
         }
     </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const nav = document.querySelector('.floating-nav');
-            let lastScroll = 0;
-
-            window.addEventListener('scroll', function() {
-                const currentScroll = window.pageYOffset;
-                
-                if (currentScroll > 50) {
-                    nav.classList.add('scrolled');
-                } else {
-                    nav.classList.remove('scrolled');
-                }
-                
-                lastScroll = currentScroll;
-            });
-        });
-    </script>
 </head>
 <body class="bg-white">
     <!-- Navigation -->
@@ -141,15 +280,16 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-16 items-center">
                     <div class="flex-shrink-0">
-                        <img src="assets/logos/blue%20and%20purple%20logo.png" alt="BNB Mastery Logo" class="h-8">
+                        <img src="assets/logos/Asset 1@4x-8.png" alt="BNB Mastery Logo" class="h-8">
                     </div>
                     <div class="hidden md:block">
                         <div class="ml-10 flex items-center space-x-8">
-                            <a href="#" class="nav-link text-gray-700 hover:text-brand-orange px-3 py-2 font-medium" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">Home</a>
-                            <a href="#how-it-works" class="nav-link text-gray-700 hover:text-brand-orange px-3 py-2 font-medium">How It Works</a>
-                            <a href="#testimonials" class="nav-link text-gray-700 hover:text-brand-orange px-3 py-2 font-medium">Success Stories</a>
-                            <a href="#faq" class="nav-link text-gray-700 hover:text-brand-orange px-3 py-2 font-medium">FAQ</a>
-                            <a href="https://go.bnblaunch.io/w/app?" class="bg-brand-orange text-white px-6 py-2 rounded-lg hover:bg-brand-bright-orange transition-colors font-medium">Get Started</a>
+                            <a href="#home" class="nav-link">Home</a>
+                            <a href="#features" class="nav-link">Features</a>
+                            <a href="#process" class="nav-link">Process</a>
+                            <a href="#testimonials" class="nav-link">Success Stories</a>
+                            <a href="#faq" class="nav-link">FAQ</a>
+                            <button class="btn-primary">Get Started</button>
                         </div>
                     </div>
                 </div>
@@ -158,214 +298,263 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-brand-dark-blue" style="min-height: 70vh; display: flex; align-items: center;">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid md:grid-cols-2 gap-12 items-center h-full">
-                <div class="flex flex-col items-center justify-center text-center h-full w-full">
-                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">
-                        Start Your Airbnb
-                        <br>
-                        Arbitrage Business
-                        <br>
-                        <span class="text-brand-orange">Today</span>
+    <section id="home" class="gradient-bg min-h-screen flex items-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="animate-slide-in-left">
+                    <h1 class="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+                        Master Airbnb
+                        <span class="gradient-text">Arbitrage</span>
+                        <br>Like a Pro
                     </h1>
-                    <p class="text-xl text-gray-300 mb-8 max-w-xl mx-auto">
-                        We guide you step-by-step through launching your own Airbnb business—without owning property, and without the guesswork.
+                    <p class="text-xl text-gray-300 mb-8 leading-relaxed">
+                        Transform your financial future with proven Airbnb arbitrage strategies. 
+                        Start earning passive income without owning property.
                     </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center w-full">
-                        <a href="https://go.bnblaunch.io/w/app?" class="bg-brand-orange text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-brand-bright-orange transition-colors">
-                            Book a Call
-                        </a>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="btn-primary text-lg px-8 py-4">
+                            Start Your Journey
+                        </button>
+                        <button class="bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-12 border border-white/20 hover:bg-white/20 transition-all">
+                            Learn More
+                        </button>
                     </div>
                 </div>
-                <div class="relative rounded-2xl overflow-hidden shadow-xl bg-brand-dark-blue h-full w-full flex items-center justify-center">
-                    <div class="aspect-video w-full h-full rounded-2xl overflow-hidden bg-brand-dark-blue">
-                        <div id="vidalytics_embed_4eI9UX880LI9Bxm_" style="width: 100%; position:relative; padding-top: 56.25%;"></div>
-                        <script type="text/javascript">
-                        (function (v, i, d, a, l, y, t, c, s) {
-                            y='_'+d.toLowerCase();c=d+'L';if(!v[d]){v[d]={};}if(!v[c]){v[c]={};}if(!v[y]){v[y]={};}var vl='Loader',vli=v[y][vl],vsl=v[c][vl + 'Script'],vlf=v[c][vl + 'Loaded'],ve='Embed';
-                            if (!vsl){vsl=function(u,cb){
-                                if(t){cb();return;}s=i.createElement("script");s.type="text/javascript";s.async=1;s.src=u;
-                                if(s.readyState){s.onreadystatechange=function(){if(s.readyState==="loaded"||s.readyState=="complete"){s.onreadystatechange=null;vlf=1;cb();}};}else{s.onload=function(){vlf=1;cb();};}
-                                i.getElementsByTagName("head")[0].appendChild(s);
-                            };}
-                            vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
-                        })(window, document, 'Vidalytics', 'vidalytics_embed_4eI9UX880LI9Bxm_', 'https://fast.vidalytics.com/embeds/CgmkJczI/4eI9UX880LI9Bxm_/');
-                        </script>
+                <div class="animate-slide-in-right">
+                    <div class="bg-white/10 backdrop-blur-sm rounded-24 p-8 border border-white/20">
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="text-center">
+                                <div class="stat-number mb-2" data-target="500">0</div>
+                                <p class="text-gray-300">Properties Managed</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="stat-number mb-2" data-target="2.5">0</div>
+                                <p class="text-gray-300">Million in Revenue</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="stat-number mb-2" data-target="95">0</div>
+                                <p class="text-gray-300">Success Rate</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="stat-number mb-2" data-target="12">0</div>
+                                <p class="text-gray-300">Months Average</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- How It Works Section -->
-    <section id="how-it-works" class="py-20 bg-gray-50">
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-center mb-12 text-brand-dark-blue">How It Works</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Step 1 -->
-                <div class="bg-white border-2 border-brand-orange rounded-xl p-8 flex flex-col items-start shadow-md transition-shadow duration-300 hover:shadow-2xl hover:shadow-[rgba(17,31,70,0.25)]">
-                    <div class="text-2xl font-bold mb-4 text-brand-orange">Step 1</div>
-                    <h3 class="text-xl font-semibold mb-3 text-brand-dark-blue">Property Sourcing & Negotiation</h3>
-                    <p class="text-gray-700">We find, vet, and negotiate profitable short-term rental properties for you. Our team handles landlord approvals, lease negotiations, and ensures the property fits the Airbnb arbitrage model.</p>
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-brand-dark-blue mb-4">Why Choose BNB Mastery?</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Our comprehensive approach ensures your success in the competitive Airbnb arbitrage market
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="interactive-card bg-white rounded-20 p-8 text-center">
+                    <div class="w-16 h-16 bg-light-orange rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-chart-line text-2xl text-brand-orange"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-brand-dark-blue mb-4">Proven Strategies</h3>
+                    <p class="text-gray-600">Battle-tested methods that have generated millions in revenue for our clients.</p>
                 </div>
-                <!-- Step 2 -->
-                <div class="bg-light-orange border-2 border-brand-orange rounded-xl p-8 flex flex-col items-start shadow-md transition-shadow duration-300 hover:shadow-2xl hover:shadow-[rgba(17,31,70,0.25)]">
-                    <div class="text-2xl font-bold mb-4 text-brand-orange">Step 2</div>
-                    <h3 class="text-xl font-semibold mb-3 text-brand-dark-blue">Setup & Optimization</h3>
-                    <p class="text-gray-700">We coordinate furnishing, create high-converting Airbnb listings, and install proven management systems. Our setup ensures your property stands out in competitive markets — ready to generate bookings fast.</p>
+                <div class="interactive-card bg-white rounded-20 p-8 text-center">
+                    <div class="w-16 h-16 bg-light-orange rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-users text-2xl text-brand-orange"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-brand-dark-blue mb-4">Expert Support</h3>
+                    <p class="text-gray-600">Direct access to industry experts who've built successful arbitrage businesses.</p>
                 </div>
-                <!-- Step 3 -->
-                <div class="bg-white border-2 border-brand-orange rounded-xl p-8 flex flex-col items-start shadow-md transition-shadow duration-300 hover:shadow-2xl hover:shadow-[rgba(17,31,70,0.25)]">
-                    <div class="text-2xl font-bold mb-4 text-brand-orange">Step 3</div>
-                    <h3 class="text-xl font-semibold mb-3 text-brand-dark-blue">Launch & Handoff</h3>
-                    <p class="text-gray-700">Once the listing is live and optimized, we walk you through managing the day-to-day operations with simple, streamlined systems. You step into a fully operational Airbnb arbitrage business with everything in place.</p>
-                </div>
-                <!-- Step 4 -->
-                <div class="bg-light-orange border-2 border-brand-orange rounded-xl p-8 flex flex-col items-start shadow-md transition-shadow duration-300 hover:shadow-2xl hover:shadow-[rgba(17,31,70,0.25)]">
-                    <div class="text-2xl font-bold mb-4 text-brand-orange">Step 4</div>
-                    <h3 class="text-xl font-semibold mb-3 text-brand-dark-blue">Profitability & Support</h3>
-                    <p class="text-gray-700">We monitor early performance and provide post-launch support to maximize your cashflow. If we don't find you a profitable property within 90 days, you get your money back — guaranteed.</p>
+                <div class="interactive-card bg-white rounded-20 p-8 text-center">
+                    <div class="w-16 h-16 bg-light-orange rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-shield-alt text-2xl text-brand-orange"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-brand-dark-blue mb-4">Risk Management</h3>
+                    <p class="text-gray-600">Comprehensive risk mitigation strategies to protect your investment.</p>
                 </div>
             </div>
-            <!-- 90-Day Guarantee -->
-            <div class="mt-12 max-w-2xl mx-auto bg-light-orange border-l-4 border-brand-orange p-6 rounded-lg text-center">
-                <h3 class="text-2xl font-bold text-brand-dark-blue mb-2">90-Day Profitability Guarantee</h3>
-                <p class="text-brand-dark-blue text-lg">We stand behind our process. If we don't find and launch a profitable Airbnb property for you within 90 days, you'll receive a full refund.<br>No profitable property, no risk to you.</p>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-brand-dark-blue mb-4">Your Path to Success</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Follow our proven 4-step process to launch your Airbnb arbitrage business
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="interactive-card bg-gradient-to-br from-brand-orange/10 to-brand-bright-orange/10 rounded-20 p-8 border border-brand-orange/20">
+                    <div class="text-4xl font-bold text-brand-orange mb-4">01</div>
+                    <h3 class="text-xl font-semibold text-brand-dark-blue mb-4">Market Analysis</h3>
+                    <p class="text-gray-600">We identify the most profitable markets and properties for your arbitrage business.</p>
+                    <div class="progress-bar mt-6">
+                        <div class="progress-fill" style="width: 25%"></div>
+                    </div>
+                </div>
+                <div class="interactive-card bg-gradient-to-br from-brand-orange/10 to-brand-bright-orange/10 rounded-20 p-8 border border-brand-orange/20">
+                    <div class="text-4xl font-bold text-brand-orange mb-4">02</div>
+                    <h3 class="text-xl font-semibold text-brand-dark-blue mb-4">Property Setup</h3>
+                    <p class="text-gray-600">Complete property optimization including furnishing, photography, and listing creation.</p>
+                    <div class="progress-bar mt-6">
+                        <div class="progress-fill" style="width: 50%"></div>
+                    </div>
+                </div>
+                <div class="interactive-card bg-gradient-to-br from-brand-orange/10 to-brand-bright-orange/10 rounded-20 p-8 border border-brand-orange/20">
+                    <div class="text-4xl font-bold text-brand-orange mb-4">03</div>
+                    <h3 class="text-xl font-semibold text-brand-dark-blue mb-4">Launch & Optimize</h3>
+                    <p class="text-gray-600">Strategic launch with ongoing optimization to maximize your booking rates and revenue.</p>
+                    <div class="progress-bar mt-6">
+                        <div class="progress-fill" style="width: 75%"></div>
+                    </div>
+                </div>
+                <div class="interactive-card bg-gradient-to-br from-brand-orange/10 to-brand-bright-orange/10 rounded-20 p-8 border border-brand-orange/20">
+                    <div class="text-4xl font-bold text-brand-orange mb-4">04</div>
+                    <h3 class="text-xl font-semibold text-brand-dark-blue mb-4">Scale & Grow</h3>
+                    <p class="text-gray-600">Expand your portfolio with proven scaling strategies and ongoing support.</p>
+                    <div class="progress-bar mt-6">
+                        <div class="progress-fill" style="width: 100%"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="py-20 bg-white">
+    <section id="testimonials" class="py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-center mb-12 text-brand-dark-blue">Success Stories</h2>
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-brand-dark-blue mb-4">Success Stories</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Real results from real people who transformed their lives with Airbnb arbitrage
+                </p>
+            </div>
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-gray-50 p-8 rounded-xl card-shadow">
-                    <div class="aspect-video mb-4">
-                        <div id="vidalytics_embed_kDOnRQKXq_K1966G" style="width: 100%; position:relative; padding-top: 56.25%;"></div>
-                        <script type="text/javascript">
-                        (function (v, i, d, a, l, y, t, c, s) {
-                            y='_'+d.toLowerCase();c=d+'L';if(!v[d]){v[d]={};}if(!v[c]){v[c]={};}if(!v[y]){v[y]={};}var vl='Loader',vli=v[y][vl],vsl=v[c][vl + 'Script'],vlf=v[c][vl + 'Loaded'],ve='Embed';
-                            if (!vsl){vsl=function(u,cb){
-                                if(t){cb();return;}s=i.createElement("script");s.type="text/javascript";s.async=1;s.src=u;
-                                if(s.readyState){s.onreadystatechange=function(){if(s.readyState==="loaded"||s.readyState=="complete"){s.onreadystatechange=null;vlf=1;cb();}};}else{s.onload=function(){vlf=1;cb();};}
-                                i.getElementsByTagName("head")[0].appendChild(s);
-                            };}
-                            vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
-                        })(window, document, 'Vidalytics', 'vidalytics_embed_kDOnRQKXq_K1966G', 'https://fast.vidalytics.com/embeds/CgmkJczI/kDOnRQKXq_K1966G/');
-                        </script>
-                    </div>
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full mr-4 overflow-hidden">
-                            <img src="assets/images/vishal.png" alt="Vishal P." class="w-full h-full object-cover">
+                <div class="testimonial-card">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-brand-orange to-brand-bright-orange rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
+                            VP
                         </div>
                         <div>
                             <h4 class="font-semibold text-brand-dark-blue">Vishal P.</h4>
                             <p class="text-gray-600">Former Canadian Resident</p>
                         </div>
                     </div>
-                    <p class="text-gray-700">"Colin wants to see you succeed and I am proof of that…Today I have 16+ units that generated $30k in March alone"</p>
-                </div>
-                <div class="bg-gray-50 p-8 rounded-xl card-shadow">
-                    <div class="aspect-video mb-4">
-                        <div id="vidalytics_embed_JBTnr61vcHQXSdFQ" style="width: 100%; position:relative; padding-top: 56.25%;"></div>
-                        <script type="text/javascript">
-                        (function (v, i, d, a, l, y, t, c, s) {
-                            y='_'+d.toLowerCase();c=d+'L';if(!v[d]){v[d]={};}if(!v[c]){v[c]={};}if(!v[y]){v[y]={};}var vl='Loader',vli=v[y][vl],vsl=v[c][vl + 'Script'],vlf=v[c][vl + 'Loaded'],ve='Embed';
-                            if (!vsl){vsl=function(u,cb){
-                                if(t){cb();return;}s=i.createElement("script");s.type="text/javascript";s.async=1;s.src=u;
-                                if(s.readyState){s.onreadystatechange=function(){if(s.readyState==="loaded"||s.readyState=="complete"){s.onreadystatechange=null;vlf=1;cb();}};}else{s.onload=function(){vlf=1;cb();};}
-                                i.getElementsByTagName("head")[0].appendChild(s);
-                            };}
-                            vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
-                        })(window, document, 'Vidalytics', 'vidalytics_embed_JBTnr61vcHQXSdFQ', 'https://fast.vidalytics.com/embeds/CgmkJczI/JBTnr61vcHQXSdFQ/');
-                        </script>
+                    <p class="text-gray-700 mb-4">"The strategies I learned here completely transformed my approach to real estate. I now have 16+ units generating $30k monthly revenue."</p>
+                    <div class="flex items-center text-brand-orange">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
                     </div>
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full mr-4 overflow-hidden">
-                            <img src="assets/images/chris.png" alt="Chris S." class="w-full h-full object-cover">
+                </div>
+                <div class="testimonial-card">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-brand-orange to-brand-bright-orange rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
+                            CS
                         </div>
                         <div>
                             <h4 class="font-semibold text-brand-dark-blue">Chris S.</h4>
                             <p class="text-gray-600">Full Time Photographer</p>
                         </div>
                     </div>
-                    <p class="text-gray-700">"What Colin offers is definitely different. He is helping his students, myself being one of them, use those learnings to be able to start and grow in this Airbnb arbitrage business... I have 4 properties live and achieved superhost status within the first month!"</p>
-                </div>
-                <div class="bg-gray-50 p-8 rounded-xl card-shadow">
-                    <div class="aspect-video mb-4">
-                        <div id="vidalytics_embed_xGgaF7qRGiDFguRu" style="width: 100%; position:relative; padding-top: 56.25%;"></div>
-                        <script type="text/javascript">
-                        (function (v, i, d, a, l, y, t, c, s) {
-                            y='_'+d.toLowerCase();c=d+'L';if(!v[d]){v[d]={};}if(!v[c]){v[c]={};}if(!v[y]){v[y]={};}var vl='Loader',vli=v[y][vl],vsl=v[c][vl + 'Script'],vlf=v[c][vl + 'Loaded'],ve='Embed';
-                            if (!vsl){vsl=function(u,cb){
-                                if(t){cb();return;}s=i.createElement("script");s.type="text/javascript";s.async=1;s.src=u;
-                                if(s.readyState){s.onreadystatechange=function(){if(s.readyState==="loaded"||s.readyState=="complete"){s.onreadystatechange=null;vlf=1;cb();}};}else{s.onload=function(){vlf=1;cb();};}
-                                i.getElementsByTagName("head")[0].appendChild(s);
-                            };}
-                            vsl(l+'loader.min.js',function(){if(!vli){var vlc=v[c][vl];vli=new vlc();}vli.loadScript(l+'player.min.js',function(){var vec=v[d][ve];t=new vec();t.run(a);});});
-                        })(window, document, 'Vidalytics', 'vidalytics_embed_xGgaF7qRGiDFguRu', 'https://fast.vidalytics.com/embeds/CgmkJczI/xGgaF7qRGiDFguRu/');
-                        </script>
+                    <p class="text-gray-700 mb-4">"Achieved superhost status within the first month! The step-by-step guidance made all the difference in my success."</p>
+                    <div class="flex items-center text-brand-orange">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
                     </div>
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 rounded-full mr-4 overflow-hidden">
-                            <img src="assets/images/ray.png" alt="Ray B." class="w-full h-full object-cover">
+                </div>
+                <div class="testimonial-card">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-brand-orange to-brand-bright-orange rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
+                            RB
                         </div>
                         <div>
                             <h4 class="font-semibold text-brand-dark-blue">Ray B.</h4>
                             <p class="text-gray-600">Former Multifamily RE Investor</p>
                         </div>
                     </div>
-                    <p class="text-gray-700">"Colin helped me identify the right markets for my portfolio…Today I have 10+ units generating 30-40k a month in revenue"</p>
+                    <p class="text-gray-700 mb-4">"10+ units generating 30-40k monthly revenue. The market analysis and optimization strategies are game-changing."</p>
+                    <div class="flex items-center text-brand-orange">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- FAQ Section -->
-    <section id="faq" class="py-20 bg-gray-50">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-center mb-12 text-brand-dark-blue">Frequently Asked Questions</h2>
+    <section id="faq" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-brand-dark-blue mb-4">Frequently Asked Questions</h2>
+                <p class="text-xl text-gray-600">Everything you need to know about getting started</p>
+            </div>
             <div class="space-y-4">
-                <div class="border rounded-lg bg-white card-shadow">
-                    <button class="w-full p-4 text-left flex justify-between items-center">
-                        <span class="font-semibold text-brand-dark-blue">How long does it take to get started?</span>
-                        <i class="fas fa-chevron-down text-brand-orange"></i>
-                    </button>
-                    <div class="p-4 border-t hidden">
-                        <p class="text-gray-700">The timeline varies based on your goals and property availability, but most clients are up and running within 2-3 months.</p>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How long does it take to get started?</span>
+                        <i class="fas fa-chevron-down faq-icon text-brand-orange"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-700">Most clients are up and running within 2-3 months. The timeline varies based on your goals and property availability in your target market.</p>
                     </div>
                 </div>
-                <div class="border rounded-lg bg-white card-shadow">
-                    <button class="w-full p-4 text-left flex justify-between items-center">
-                        <span class="font-semibold text-brand-dark-blue">What's included in the program?</span>
-                        <i class="fas fa-chevron-down text-brand-orange"></i>
-                    </button>
-                    <div class="p-4 border-t hidden">
-                        <p class="text-gray-700">Our comprehensive program covers everything from property selection to guest management, pricing strategies, and scaling your business.</p>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What's included in the program?</span>
+                        <i class="fas fa-chevron-down faq-icon text-brand-orange"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-700">Our comprehensive program covers market analysis, property selection, setup optimization, guest management, pricing strategies, and scaling your business.</p>
                     </div>
                 </div>
-                <div class="border rounded-lg bg-white card-shadow">
-                    <button class="w-full p-4 text-left flex justify-between items-center">
-                        <span class="font-semibold text-brand-dark-blue">Do I need previous experience?</span>
-                        <i class="fas fa-chevron-down text-brand-orange"></i>
-                    </button>
-                    <div class="p-4 border-t hidden">
-                        <p class="text-gray-700">No previous experience is required. Our program is designed for beginners and experienced investors alike.</p>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do I need previous experience?</span>
+                        <i class="fas fa-chevron-down faq-icon text-brand-orange"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-700">No previous experience is required. Our program is designed for beginners and experienced investors alike, with personalized guidance at every step.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What kind of support do you provide?</span>
+                        <i class="fas fa-chevron-down faq-icon text-brand-orange"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-700">We provide ongoing support including market analysis, property optimization, guest management systems, and scaling strategies to ensure your long-term success.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Get Started Section -->
-    <section class="py-20 bg-brand-orange">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-4xl font-bold mb-8 text-white">Want to start an Airbnb Business?</h2>
-            <a href="https://go.bnblaunch.io/w/app?" class="inline-block bg-white text-brand-orange px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors">
-                Start Today
-            </a>
+    <!-- CTA Section -->
+    <section class="py-20 gradient-bg">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold text-white mb-8">Ready to Transform Your Financial Future?</h2>
+            <p class="text-xl text-gray-300 mb-8">Join hundreds of successful entrepreneurs who've built profitable Airbnb arbitrage businesses</p>
+            <button class="btn-primary text-lg px-12 py-4">
+                Start Your Journey Today
+            </button>
         </div>
     </section>
 
@@ -374,44 +563,44 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-4 gap-8">
                 <div>
-                    <img src="assets/logos/White and purple logo.png" alt="BNB Mastery Logo" class="h-8 mb-4">
-                    <p class="text-gray-400">Helping you build a successful Airbnb business.</p>
+                    <img src="assets/logos/Asset 2@4x-8.png" alt="BNB Mastery Logo" class="h-8 mb-4">
+                    <p class="text-gray-400">Mastering Airbnb arbitrage for financial freedom.</p>
                 </div>
                 <div>
                     <h4 class="font-semibold mb-4">Quick Links</h4>
                     <ul class="space-y-2">
-                        <li><a href="#how-it-works" class="text-gray-400 hover:text-white">How It Works</a></li>
-                        <li><a href="#testimonials" class="text-gray-400 hover:text-white">Success Stories</a></li>
-                        <li><a href="#faq" class="text-gray-400 hover:text-white">FAQ</a></li>
+                        <li><a href="#features" class="text-gray-400 hover:text-white transition-colors">Features</a></li>
+                        <li><a href="#process" class="text-gray-400 hover:text-white transition-colors">Process</a></li>
+                        <li><a href="#testimonials" class="text-gray-400 hover:text-white transition-colors">Success Stories</a></li>
+                        <li><a href="#faq" class="text-gray-400 hover:text-white transition-colors">FAQ</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-semibold mb-4">Contact</h4>
+                    <h4 class="font-semibold mb-4">Resources</h4>
                     <ul class="space-y-2">
-                        <li class="text-gray-400">Email: team@bnblaunch.io</li>
-                        <li class="text-gray-400">Website: <a href="https://bnblaunch.io" class="hover:text-white">bnblaunch.io</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Case Studies</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Market Reports</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Tools</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-semibold mb-4">Follow Us</h4>
+                    <h4 class="font-semibold mb-4">Connect</h4>
                     <div class="flex space-x-4">
-                        <a href="https://www.instagram.com/agentwright" target="_blank" rel="noopener" class="text-gray-400 hover:text-white">
+                        <a href="https://instagram.com/killiansellsluxuri" target="_blank" rel="noopener" class="text-gray-400 hover:text-brand-orange transition-colors">
                             <i class="fab fa-instagram text-2xl"></i>
                         </a>
-                        <a href="https://www.facebook.com/people/Wright-BNB-Academy/100070339172133/" target="_blank" rel="noopener" class="text-gray-400 hover:text-white">
+                        <a href="https://www.facebook.com/bnbmastery" target="_blank" rel="noopener" class="text-gray-400 hover:text-brand-orange transition-colors">
                             <i class="fab fa-facebook text-2xl"></i>
-                        </a>
-                        <a href="https://www.youtube.com/@AgentWrightBNB" target="_blank" rel="noopener" class="text-gray-400 hover:text-white">
-                            <i class="fab fa-youtube text-2xl"></i>
                         </a>
                     </div>
                 </div>
             </div>
             <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
                 <div class="mb-2">
-                    <a href="privacy-policy" target="_blank" rel="noopener" class="text-gray-400 hover:text-white">Privacy Policy</a>
-                    <span class="mx-2">|</span>
-                    <a href="terms-of-service" target="_blank" rel="noopener" class="text-gray-400 hover:text-white">Terms of Service</a>
+                    <a href="privacy-policy" target="_blank" rel="noopener" class="text-white hover:text-brand-orange transition-colors">Privacy Policy</a>
+                    <span class="mx-2 text-gray-600">|</span>
+                    <a href="terms-of-service" target="_blank" rel="noopener" class="text-white hover:text-brand-orange transition-colors">Terms of Service</a>
                 </div>
                 <p>&copy; 2024 BNB Mastery. All rights reserved.</p>
             </div>
