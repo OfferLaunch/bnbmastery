@@ -4,12 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - BNB Mastery</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/16x16.png">
+    <meta name="description" content="Meet Killian, the founder of BNB Mastery. Learn about his journey from $27,000 to building a successful Airbnb arbitrage business.">
+    <link rel="icon" type="image/png" href="assets/favicons/32x32.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Manrope', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
     <style>
         :root {
             --brand-orange: #FA7D28;
@@ -17,20 +27,102 @@
             --brand-dark-blue: #111F46;
         }
         
-        html {
-            scroll-behavior: smooth;
+        .gradient-bg {
+            background: linear-gradient(135deg, #111F46 0%, #1a2a5e 100%);
         }
         
-        .brand-orange { color: var(--brand-orange); }
-        .brand-bright-orange { color: var(--brand-bright-orange); }
-        .brand-dark-blue { color: var(--brand-dark-blue); }
-        .bg-brand-orange { background-color: var(--brand-orange); }
-        .bg-brand-bright-orange { background-color: var(--brand-bright-orange); }
-        .bg-brand-dark-blue { background-color: var(--brand-dark-blue); }
-        .border-brand-orange { border-color: var(--brand-orange); }
-        .bg-light-orange { background-color: rgba(250, 125, 40, 0.05); }
+        .gradient-text {
+            background: linear-gradient(25deg, #FA7D28 0%, #FF5715 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
         
-        /* Modern animations */
+        .floating-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-container {
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link {
+            color: #111F46;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: #FA7D28;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: linear-gradient(25deg, #FA7D28 0%, #FF5715 100%);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(25deg, #FA7D28 0%, #FF5715 100%);
+            color: white;
+            padding: 12px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(250, 125, 40, 0.3);
+        }
+        
+        .interactive-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .interactive-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .animate-slide-in-left {
+            animation: slideInLeft 0.8s ease-out;
+        }
+        
+        .animate-slide-in-right {
+            animation: slideInRight 0.8s ease-out;
+        }
+        
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -64,185 +156,6 @@
             }
         }
         
-        .animate-fade-in-up {
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-        
-        .animate-slide-in-left {
-            animation: slideInLeft 0.8s ease-out forwards;
-        }
-        
-        .animate-slide-in-right {
-            animation: slideInRight 0.8s ease-out forwards;
-        }
-        
-        /* Interactive elements */
-        .interactive-card {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-        }
-        
-        .interactive-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(250, 125, 40, 0.15);
-        }
-        
-        .gradient-bg {
-            background: linear-gradient(135deg, #111F46 0%, #1a2a5e 100%);
-        }
-        
-        .gradient-text {
-            background: linear-gradient(135deg, #FA7D28 0%, #FF5715 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        /* Modern navigation */
-        .nav-link {
-            position: relative;
-            color: #111F46;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-        
-        .nav-link:hover {
-            color: #FA7D28;
-        }
-        
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(135deg, #FA7D28 0%, #FF5715 100%);
-            transition: width 0.3s ease;
-        }
-        
-        .nav-link:hover::after {
-            width: 100%;
-        }
-        
-        /* Floating navigation */
-        .floating-nav {
-            position: fixed;
-            top: 1rem;
-            left: 50%;
-            transform: translateX(-50%);
-            width: calc(100% - 2rem);
-            max-width: 1200px;
-            z-index: 50;
-            transition: all 0.3s ease;
-        }
-        
-        .floating-nav.scrolled {
-            top: 0.5rem;
-        }
-        
-        .nav-container {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-radius: 16px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        /* Modern buttons */
-        .btn-primary {
-            background: linear-gradient(25deg, #FA7D28 0%, #FF5715 100%);
-            color: white;
-            padding: 12px 32px;
-            border-radius: 12px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            text-decoration: none;
-            display: inline-block;
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(250, 125, 40, 0.3);
-        }
-        
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
-        }
-        
-        .btn-primary:hover::before {
-            left: 100%;
-        }
-        
-        /* Story timeline */
-        .timeline-item {
-            position: relative;
-            padding-left: 3rem;
-            margin-bottom: 2rem;
-        }
-        
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0.5rem;
-            width: 1rem;
-            height: 1rem;
-            background: linear-gradient(135deg, #FA7D28 0%, #FF5715 100%);
-            border-radius: 50%;
-        }
-        
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            left: 0.5rem;
-            top: 1.5rem;
-            width: 2px;
-            height: calc(100% + 1rem);
-            background: linear-gradient(135deg, #FA7D28 0%, #FF5715 100%);
-        }
-        
-        .timeline-item:last-child::after {
-            display: none;
-        }
-        
-        /* Stats cards */
-        .stat-card {
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(250, 125, 40, 0.1);
-            text-align: center;
-        }
-        
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(250, 125, 40, 0.15);
-        }
-        
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #FA7D28 0%, #FF5715 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        /* Video container styles */
         .video-container {
             position: relative;
             width: 100%;
@@ -250,21 +163,25 @@
         
         .aspect-w-16 {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            padding-bottom: 56.25%;
         }
         
         .aspect-h-9 {
             position: absolute;
+            height: 100%;
+            width: 100%;
             top: 0;
-            left: 0;
             right: 0;
             bottom: 0;
+            left: 0;
         }
         
         #vidalytics-player {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #1a2a5e 0%, #111F46 100%);
         }
     </style>
 </head>
@@ -275,16 +192,18 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-16 items-center">
                     <div class="flex-shrink-0">
-                        <img src="assets/logos/Asset 1@4x-8.png" alt="BNB Mastery Logo" class="h-8">
+                        <a href="index.html">
+                            <img src="assets/logos/Asset 1@4x-8.png" alt="BNB Mastery Logo" class="h-8">
+                        </a>
                     </div>
                     <div class="hidden md:block">
                         <div class="ml-10 flex items-center space-x-8">
-                            <a href="index.html" class="nav-link">Home</a>
+                            <a href="index.html#home" class="nav-link">Home</a>
                             <a href="index.html#features" class="nav-link">Features</a>
                             <a href="index.html#process" class="nav-link">Process</a>
                             <a href="index.html#testimonials" class="nav-link">Success Stories</a>
                             <a href="index.html#faq" class="nav-link">FAQ</a>
-                            <a href="index.html#about" class="nav-link text-brand-orange font-semibold">About</a>
+                            <a href="about.html" class="nav-link">About</a>
                             <a href="https://go.bnbmastery.io/w/app?utm_source=website&utm_medium=nav&utm_campaign=about_nav&utm_content=get_started&utm_term=bnb_mastery" class="btn-primary">Get Started</a>
                         </div>
                     </div>
@@ -294,141 +213,124 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="gradient-bg pt-32 pb-20 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-7xl mx-auto">
+    <section class="gradient-bg pt-32 pb-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
                 <h1 class="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-                    Meet Our Founder
-                    <br>
-                    <span class="gradient-text">Killian</span>
+                    Meet Our
+                    <span class="gradient-text">Founder</span>
                 </h1>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                    From $27,000 and a dream to building BNB Mastery—discover the story behind the man who turned Airbnb arbitrage into a life-changing opportunity for thousands.
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Discover the story behind BNB Mastery and how Killian transformed his life through Airbnb arbitrage
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Photo Section -->
+    <!-- Founder Story Section -->
     <section class="py-20 bg-white">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <div class="relative inline-block">
-                    <img src="assets/images/JCA02734.jpg" alt="Killian - Founder of BNB Mastery" class="w-80 h-auto rounded-24 shadow-2xl mx-auto">
-                    <div class="absolute -bottom-6 -right-6 bg-brand-orange text-white px-6 py-3 rounded-16 shadow-lg">
-                        <p class="font-semibold">Founder & CEO</p>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="animate-slide-in-left">
+                    <h2 class="text-4xl font-bold text-brand-dark-blue mb-6">Killian's Journey</h2>
+                    <h3 class="text-2xl font-semibold text-brand-orange mb-4">From $27,000 to Success</h3>
+                    <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+                        Killian's journey into real estate started in 2021 with nothing more than determination and $27,000 he had saved while living with his parents. Just days before his 25th birthday, he poured every dollar into the down payment on his first home—finally achieving his goal of becoming a property owner.
+                    </p>
+                    <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+                        That challenge became the turning point. Instead of walking away, Killian discovered Airbnb arbitrage—a business model that allowed him to transform rental properties into profitable short-term rentals without needing to own them outright. What began as a survival strategy quickly grew into a scalable business.
+                    </p>
+                    <p class="text-lg text-gray-700 mb-8 leading-relaxed">
+                        Today, Killian is the founder of BNB Mastery, where he helps others replicate the exact system that turned his situation around. His mission is simple: to show aspiring entrepreneurs and professionals that you don't need massive capital or years of experience to build a cash-flowing portfolio—you need the right model and the right guidance.
+                    </p>
+                    <a href="https://go.bnbmastery.io/w/app?utm_source=website&utm_medium=about&utm_campaign=about_section&utm_content=learn_more&utm_term=bnb_mastery" class="btn-primary">
+                        Learn More About Killian
+                    </a>
+                </div>
+                <div class="animate-slide-in-right">
+                    <div class="relative">
+                        <img src="assets/images/JCA02734.jpg" alt="Killian - Founder of BNB Mastery" class="w-full h-auto rounded-24 shadow-2xl">
+                        <div class="absolute -bottom-6 -right-6 text-white px-6 py-3 rounded-16 shadow-lg" style="background: linear-gradient(25deg, #FA7D28 0%, #FF5715 100%);">
+                            <p class="font-semibold text-white">Founder & CEO</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Story Section -->
-    <section class="py-20 bg-gray-50">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="animate-slide-in-left">
-                <h2 class="text-4xl font-bold text-brand-dark-blue mb-12 text-center">The Journey That Started It All</h2>
-                
-                <div class="space-y-8">
-                    <div class="timeline-item">
-                        <h3 class="text-2xl font-semibold text-brand-dark-blue mb-4">The Beginning: A Dream and $27,000</h3>
-                        <p class="text-lg text-gray-700 leading-relaxed">
-                            Killian's journey into real estate started in 2021 with nothing more than determination and $27,000 he had saved while living with his parents. Just days before his 25th birthday, he poured every dollar into the down payment on his first home—finally achieving his goal of becoming a property owner.
-                        </p>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <h3 class="text-2xl font-semibold text-brand-dark-blue mb-4">The Reality Check</h3>
-                        <p class="text-lg text-gray-700 leading-relaxed">
-                            But reality set in quickly. With no steady income from real estate yet, his mortgage became a heavy burden. To make it work, he turned to house hacking, renting out rooms to cover the payments. For a time, the strategy worked. But when one of his tenants moved out, he was left scrambling to find a replacement, and the financial pressure nearly pushed him to the breaking point.
-                        </p>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <h3 class="text-2xl font-semibold text-brand-dark-blue mb-4">The Turning Point</h3>
-                        <p class="text-lg text-gray-700 leading-relaxed">
-                            That challenge became the turning point. Instead of walking away, Killian discovered Airbnb arbitrage—a business model that allowed him to transform rental properties into profitable short-term rentals without needing to own them outright. What began as a survival strategy quickly grew into a scalable business.
-                        </p>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <h3 class="text-2xl font-semibold text-brand-dark-blue mb-4">Building BNB Mastery</h3>
-                        <p class="text-lg text-gray-700 leading-relaxed">
-                            Today, Killian is the founder of BNB Mastery, where he helps others replicate the exact system that turned his situation around. His mission is simple: to show aspiring entrepreneurs and professionals that you don't need massive capital or years of experience to build a cash-flowing portfolio—you need the right model and the right guidance.
-                        </p>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <h3 class="text-2xl font-semibold text-brand-dark-blue mb-4">The Mission Continues</h3>
-                        <p class="text-lg text-gray-700 leading-relaxed">
-                            Through BNB Mastery, Killian continues to empower others to achieve financial freedom, create time flexibility, and build long-term wealth with Airbnb arbitrage. His story is proof that even when the odds are stacked against you, the right opportunity can completely change your future.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
+    <!-- Story Timeline -->
     <section class="py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-brand-dark-blue mb-4">Killian's Impact</h2>
-                <p class="text-xl text-gray-600">The numbers that tell the story of transformation</p>
+                <h2 class="text-4xl font-bold text-brand-dark-blue mb-4">The Journey Timeline</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Key milestones that shaped Killian's path to success
+                </p>
             </div>
-            <div class="grid md:grid-cols-4 gap-8">
-                <div class="stat-card">
-                    <div class="stat-number mb-2" data-target="27">0</div>
-                    <p class="text-gray-600 font-semibold">Thousand Dollars</p>
-                    <p class="text-sm text-gray-500">Starting Capital</p>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="interactive-card bg-white rounded-20 p-8 text-center shadow-lg">
+                    <div class="w-16 h-16 bg-brand-orange rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-home text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-brand-dark-blue mb-4">2021 - First Property</h3>
+                    <p class="text-gray-600">Invested $27,000 savings into his first home purchase, achieving his goal of property ownership.</p>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number mb-2" data-target="25">0</div>
-                    <p class="text-gray-600 font-semibold">Years Old</p>
-                    <p class="text-sm text-gray-500">When He Started</p>
+                <div class="interactive-card bg-white rounded-20 p-8 text-center shadow-lg">
+                    <div class="w-16 h-16 bg-brand-orange rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-lightbulb text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-brand-dark-blue mb-4">Discovery</h3>
+                    <p class="text-gray-600">Discovered Airbnb arbitrage as a solution to his financial challenges and began learning the model.</p>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number mb-2" data-target="2021">0</div>
-                    <p class="text-gray-600 font-semibold">Year Started</p>
-                    <p class="text-sm text-gray-500">Real Estate Journey</p>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number mb-2" data-target="1000">0</div>
-                    <p class="text-gray-600 font-semibold">Students Helped</p>
-                    <p class="text-sm text-gray-500">Through BNB Mastery</p>
+                <div class="interactive-card bg-white rounded-20 p-8 text-center shadow-lg">
+                    <div class="w-16 h-16 bg-brand-orange rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-rocket text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-brand-dark-blue mb-4">Today - BNB Mastery</h3>
+                    <p class="text-gray-600">Founded BNB Mastery to help others replicate his success through proven strategies and guidance.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Values Section -->
-    <section class="py-20 bg-white">
+    <section class="py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-brand-dark-blue mb-4">Killian's Values</h2>
-                <p class="text-xl text-gray-600">The principles that drive BNB Mastery's success</p>
+                <h2 class="text-4xl font-bold text-brand-dark-blue mb-4">Our Values</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    The principles that guide everything we do at BNB Mastery
+                </p>
             </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="interactive-card bg-gradient-to-br from-brand-orange/10 to-brand-bright-orange/10 rounded-20 p-8 border border-brand-orange/20">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="interactive-card bg-white rounded-20 p-8 text-center">
                     <div class="w-16 h-16 bg-light-orange rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-heart text-2xl text-brand-orange"></i>
+                        <i class="fas fa-handshake text-2xl text-brand-orange"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-brand-dark-blue mb-4 text-center">Empathy</h3>
-                    <p class="text-gray-600 text-center">Understanding the struggles of starting from nothing, Killian brings genuine empathy to every student's journey.</p>
+                    <h3 class="text-xl font-semibold text-brand-dark-blue mb-4">Integrity</h3>
+                    <p class="text-gray-600">We believe in honest, transparent relationships with our clients and partners.</p>
                 </div>
-                <div class="interactive-card bg-gradient-to-br from-brand-orange/10 to-brand-bright-orange/10 rounded-20 p-8 border border-brand-orange/20">
+                <div class="interactive-card bg-white rounded-20 p-8 text-center">
                     <div class="w-16 h-16 bg-light-orange rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-lightbulb text-2xl text-brand-orange"></i>
+                        <i class="fas fa-graduation-cap text-2xl text-brand-orange"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-brand-dark-blue mb-4 text-center">Innovation</h3>
-                    <p class="text-gray-600 text-center">Constantly evolving strategies and systems to stay ahead in the competitive Airbnb arbitrage market.</p>
+                    <h3 class="text-xl font-semibold text-brand-dark-blue mb-4">Education</h3>
+                    <p class="text-gray-600">We're committed to providing comprehensive education and ongoing support.</p>
                 </div>
-                <div class="interactive-card bg-gradient-to-br from-brand-orange/10 to-brand-bright-orange/10 rounded-20 p-8 border border-brand-orange/20">
+                <div class="interactive-card bg-white rounded-20 p-8 text-center">
                     <div class="w-16 h-16 bg-light-orange rounded-full flex items-center justify-center mx-auto mb-6">
                         <i class="fas fa-users text-2xl text-brand-orange"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-brand-dark-blue mb-4 text-center">Community</h3>
-                    <p class="text-gray-600 text-center">Building a supportive network of entrepreneurs who help each other succeed in the arbitrage business.</p>
+                    <h3 class="text-xl font-semibold text-brand-dark-blue mb-4">Community</h3>
+                    <p class="text-gray-600">Building a supportive community of entrepreneurs and investors.</p>
+                </div>
+                <div class="interactive-card bg-white rounded-20 p-8 text-center">
+                    <div class="w-16 h-16 bg-light-orange rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-chart-line text-2xl text-brand-orange"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-brand-dark-blue mb-4">Results</h3>
+                    <p class="text-gray-600">Focusing on proven strategies that deliver real, measurable results.</p>
                 </div>
             </div>
         </div>
@@ -437,16 +339,11 @@
     <!-- CTA Section -->
     <section class="py-20 gradient-bg">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-4xl font-bold text-white mb-8">Ready to Start Your Own Journey?</h2>
-            <p class="text-xl text-gray-300 mb-8">Join Killian and thousands of others who have transformed their financial future with Airbnb arbitrage</p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="https://go.bnbmastery.io/w/app?utm_source=website&utm_medium=cta&utm_campaign=about_cta&utm_content=start_journey_today&utm_term=bnb_mastery" class="btn-primary text-lg px-8 py-4">
-                    Start Your Journey Today
-                </a>
-                <a href="index.html" class="bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-12 border border-white/20 hover:bg-white/20 transition-all">
-                    Back to Home
-                </a>
-            </div>
+            <h2 class="text-4xl font-bold text-white mb-8">Ready to Start Your Journey?</h2>
+            <p class="text-xl text-gray-300 mb-8">Join Killian and hundreds of successful entrepreneurs who've built profitable Airbnb arbitrage businesses</p>
+            <a href="https://go.bnbmastery.io/w/app?utm_source=website&utm_medium=about&utm_campaign=about_cta&utm_content=start_journey&utm_term=bnb_mastery" class="btn-primary text-lg px-12 py-4">
+                Start Your Journey Today
+            </a>
         </div>
     </section>
 
@@ -472,8 +369,6 @@
                     <ul class="space-y-2">
                         <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Case Studies</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Market Reports</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Tools</a></li>
                     </ul>
                 </div>
                 <div>
@@ -494,7 +389,7 @@
                     <span class="mx-2 text-gray-600">|</span>
                     <a href="terms-of-service" target="_blank" rel="noopener" class="text-white hover:text-brand-orange transition-colors">Terms of Service</a>
                 </div>
-                <p>&copy; 2024 BNB Mastery. All rights reserved.</p>
+                <p>&copy; 2025 BNB Mastery. All rights reserved.</p>
             </div>
         </div>
     </footer>

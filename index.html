@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +9,17 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/16x16.png">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Manrope', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
@@ -316,7 +329,7 @@
                             <a href="#process" class="nav-link">Process</a>
                             <a href="#testimonials" class="nav-link">Success Stories</a>
                             <a href="#faq" class="nav-link">FAQ</a>
-                            <a href="#about" class="nav-link">About</a>
+                            <a href="about.html" class="nav-link">About</a>
                             <a href="https://go.bnbmastery.io/w/app?utm_source=website&utm_medium=nav&utm_campaign=main_nav&utm_content=get_started&utm_term=bnb_mastery" class="btn-primary">Get Started</a>
                         </div>
                     </div>
@@ -329,39 +342,30 @@
     <section id="home" class="gradient-bg min-h-screen flex items-center relative overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="animate-slide-in-left">
+            <div class="text-center">
+                <div class="animate-slide-in-left mb-12">
                     <h1 class="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
                         Master Airbnb
                         <span class="gradient-text">Arbitrage</span>
                         <br>Like a Pro
                     </h1>
-                    <p class="text-xl text-gray-300 mb-8 leading-relaxed">
-                        Transform your financial future with proven Airbnb arbitrage strategies. 
-                        Start earning passive income without owning property.
+                    <p class="text-xl text-gray-300 mb-8 leading-relaxed max-w-4xl mx-auto">
+                        Learn Airbnb arbitrage strategies and explore opportunities in the short-term rental market. 
+                        Results may vary and success depends on individual effort and market conditions.
                     </p>
-                    <div class="flex flex-col sm:flex-row gap-4">
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
                         <a href="https://go.bnbmastery.io/w/app?utm_source=website&utm_medium=hero&utm_campaign=hero_section&utm_content=start_journey&utm_term=bnb_mastery" class="btn-primary text-lg px-8 py-4">
                             Start Your Journey
                         </a>
-                        <button class="bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-12 border border-white/20 hover:bg-white/20 transition-all">
-                            Learn More
-                        </button>
                     </div>
                 </div>
                 <div class="animate-slide-in-right">
-                    <div class="bg-white/10 backdrop-blur-sm rounded-24 p-8 border border-white/20">
-                        <div class="text-center mb-6">
-                            <h3 class="text-2xl font-bold text-white mb-4">Watch Our Story</h3>
-                            <p class="text-gray-300 mb-6">See how Killian built BNB Mastery from $27,000 to millions</p>
-                        </div>
-                        <div class="video-container relative w-full max-w-2xl mx-auto">
-                            <div class="aspect-w-16 aspect-h-9 bg-gray-800 rounded-16 overflow-hidden">
-                                <div id="vidalytics-player" class="w-full h-full flex items-center justify-center">
-                                    <div class="text-center text-white">
-                                        <i class="fas fa-play-circle text-6xl text-brand-orange mb-4"></i>
-                                        <p class="text-lg">Video Loading...</p>
-                                    </div>
+                    <div class="video-container relative w-full max-w-2xl mx-auto">
+                        <div class="aspect-w-16 aspect-h-9 bg-gray-800 rounded-16 overflow-hidden">
+                            <div id="vidalytics-player" class="w-full h-full flex items-center justify-center">
+                                <div class="text-center text-white">
+                                    <i class="fas fa-play-circle text-6xl text-brand-orange mb-4"></i>
+                                    <p class="text-lg">Video Loading...</p>
                                 </div>
                             </div>
                         </div>
@@ -407,43 +411,43 @@
     </section>
 
     <!-- Process Section -->
-    <section id="process" class="py-20 bg-white">
+    <section id="process" class="py-20" style="background: linear-gradient(135deg, #FA7D28 0%, #FF5715 100%);">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-brand-dark-blue mb-4">Your Path to Success</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                <h2 class="text-4xl font-bold text-white mb-4">Your Path to Success</h2>
+                <p class="text-xl text-white/90 max-w-3xl mx-auto">
                     Follow our proven 4-step process to launch your Airbnb arbitrage business
                 </p>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="interactive-card bg-gradient-to-br from-brand-orange/10 to-brand-bright-orange/10 rounded-20 p-8 border border-brand-orange/20">
+                <div class="interactive-card bg-white/95 backdrop-blur-sm rounded-20 p-8 border border-white/20 shadow-xl">
                     <div class="text-4xl font-bold text-brand-orange mb-4">01</div>
                     <h3 class="text-xl font-semibold text-brand-dark-blue mb-4">Market Analysis</h3>
-                    <p class="text-gray-600">We identify the most profitable markets and properties for your arbitrage business.</p>
+                    <p class="text-gray-700">We identify the most profitable markets and properties for your arbitrage business.</p>
                     <div class="progress-bar mt-6">
                         <div class="progress-fill" style="width: 25%"></div>
                     </div>
                 </div>
-                <div class="interactive-card bg-gradient-to-br from-brand-orange/10 to-brand-bright-orange/10 rounded-20 p-8 border border-brand-orange/20">
+                <div class="interactive-card bg-white/95 backdrop-blur-sm rounded-20 p-8 border border-white/20 shadow-xl">
                     <div class="text-4xl font-bold text-brand-orange mb-4">02</div>
                     <h3 class="text-xl font-semibold text-brand-dark-blue mb-4">Property Setup</h3>
-                    <p class="text-gray-600">Complete property optimization including furnishing, photography, and listing creation.</p>
+                    <p class="text-gray-700">Complete property optimization including furnishing, photography, and listing creation.</p>
                     <div class="progress-bar mt-6">
                         <div class="progress-fill" style="width: 50%"></div>
                     </div>
                 </div>
-                <div class="interactive-card bg-gradient-to-br from-brand-orange/10 to-brand-bright-orange/10 rounded-20 p-8 border border-brand-orange/20">
+                <div class="interactive-card bg-white/95 backdrop-blur-sm rounded-20 p-8 border border-white/20 shadow-xl">
                     <div class="text-4xl font-bold text-brand-orange mb-4">03</div>
                     <h3 class="text-xl font-semibold text-brand-dark-blue mb-4">Launch & Optimize</h3>
-                    <p class="text-gray-600">Strategic launch with ongoing optimization to maximize your booking rates and revenue.</p>
+                    <p class="text-gray-700">Strategic launch with ongoing optimization to maximize your booking rates and revenue.</p>
                     <div class="progress-bar mt-6">
                         <div class="progress-fill" style="width: 75%"></div>
                     </div>
                 </div>
-                <div class="interactive-card bg-gradient-to-br from-brand-orange/10 to-brand-bright-orange/10 rounded-20 p-8 border border-brand-orange/20">
+                <div class="interactive-card bg-white/95 backdrop-blur-sm rounded-20 p-8 border border-white/20 shadow-xl">
                     <div class="text-4xl font-bold text-brand-orange mb-4">04</div>
                     <h3 class="text-xl font-semibold text-brand-dark-blue mb-4">Scale & Grow</h3>
-                    <p class="text-gray-600">Expand your portfolio with proven scaling strategies and ongoing support.</p>
+                    <p class="text-gray-700">Expand your portfolio with proven scaling strategies and ongoing support.</p>
                     <div class="progress-bar mt-6">
                         <div class="progress-fill" style="width: 100%"></div>
                     </div>
@@ -465,14 +469,14 @@
                 <div class="testimonial-card">
                     <div class="flex items-center mb-6">
                         <div class="w-12 h-12 bg-gradient-to-br from-brand-orange to-brand-bright-orange rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
-                            VP
+                            JD
                         </div>
                         <div>
-                            <h4 class="font-semibold text-brand-dark-blue">Vishal P.</h4>
-                            <p class="text-gray-600">Former Canadian Resident</p>
+                            <h4 class="font-semibold text-brand-dark-blue">John D.</h4>
+                            <p class="text-gray-600">Entrepreneur</p>
                         </div>
                     </div>
-                    <p class="text-gray-700 mb-4">"The strategies I learned here completely transformed my approach to real estate. I now have 16+ units generating $30k monthly revenue."</p>
+                    <p class="text-gray-700 mb-4">"The strategies and support here have been incredible. Learning the right approach to Airbnb arbitrage has opened up new opportunities for me."</p>
                     <div class="flex items-center text-brand-orange">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -484,14 +488,14 @@
                 <div class="testimonial-card">
                     <div class="flex items-center mb-6">
                         <div class="w-12 h-12 bg-gradient-to-br from-brand-orange to-brand-bright-orange rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
-                            CS
+                            SM
                         </div>
                         <div>
-                            <h4 class="font-semibold text-brand-dark-blue">Chris S.</h4>
-                            <p class="text-gray-600">Full Time Photographer</p>
+                            <h4 class="font-semibold text-brand-dark-blue">Sarah M.</h4>
+                            <p class="text-gray-600">Business Owner</p>
                         </div>
                     </div>
-                    <p class="text-gray-700 mb-4">"Achieved superhost status within the first month! The step-by-step guidance made all the difference in my success."</p>
+                    <p class="text-gray-700 mb-4">"The step-by-step guidance and market insights have been invaluable. It's amazing how much you can learn about this business model."</p>
                     <div class="flex items-center text-brand-orange">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -503,14 +507,14 @@
                 <div class="testimonial-card">
                     <div class="flex items-center mb-6">
                         <div class="w-12 h-12 bg-gradient-to-br from-brand-orange to-brand-bright-orange rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
-                            RB
+                            MK
                         </div>
                         <div>
-                            <h4 class="font-semibold text-brand-dark-blue">Ray B.</h4>
-                            <p class="text-gray-600">Former Multifamily RE Investor</p>
+                            <h4 class="font-semibold text-brand-dark-blue">Mike K.</h4>
+                            <p class="text-gray-600">Investor</p>
                         </div>
                     </div>
-                    <p class="text-gray-700 mb-4">"10+ units generating 30-40k monthly revenue. The market analysis and optimization strategies are game-changing."</p>
+                    <p class="text-gray-700 mb-4">"The comprehensive approach to market analysis and property optimization has given me a solid foundation to build on."</p>
                     <div class="flex items-center text-brand-orange">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -571,37 +575,7 @@
         </div>
     </section>
 
-    <!-- About Us Section -->
-    <section id="about" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="animate-slide-in-left">
-                    <h2 class="text-4xl font-bold text-brand-dark-blue mb-6">Meet Our Founder</h2>
-                    <h3 class="text-2xl font-semibold text-brand-orange mb-4">Killian</h3>
-                    <p class="text-lg text-gray-700 mb-6 leading-relaxed">
-                        Killian's journey into real estate started in 2021 with nothing more than determination and $27,000 he had saved while living with his parents. Just days before his 25th birthday, he poured every dollar into the down payment on his first home—finally achieving his goal of becoming a property owner.
-                    </p>
-                    <p class="text-lg text-gray-700 mb-6 leading-relaxed">
-                        That challenge became the turning point. Instead of walking away, Killian discovered Airbnb arbitrage—a business model that allowed him to transform rental properties into profitable short-term rentals without needing to own them outright. What began as a survival strategy quickly grew into a scalable business.
-                    </p>
-                    <p class="text-lg text-gray-700 mb-8 leading-relaxed">
-                        Today, Killian is the founder of BNB Mastery, where he helps others replicate the exact system that turned his situation around. His mission is simple: to show aspiring entrepreneurs and professionals that you don't need massive capital or years of experience to build a cash-flowing portfolio—you need the right model and the right guidance.
-                    </p>
-                    <a href="https://go.bnbmastery.io/w/app?utm_source=website&utm_medium=about&utm_campaign=about_section&utm_content=learn_more&utm_term=bnb_mastery" class="btn-primary">
-                        Learn More About Killian
-                    </a>
-                </div>
-                <div class="animate-slide-in-right">
-                    <div class="relative">
-                        <img src="assets/images/JCA02734.jpg" alt="Killian - Founder of BNB Mastery" class="w-full h-auto rounded-24 shadow-2xl">
-                        <div class="absolute -bottom-6 -right-6 bg-brand-orange text-white px-6 py-3 rounded-16 shadow-lg">
-                            <p class="font-semibold">Founder & CEO</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
     <!-- CTA Section -->
     <section class="py-20 gradient-bg">
@@ -636,8 +610,6 @@
                     <ul class="space-y-2">
                         <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Case Studies</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Market Reports</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Tools</a></li>
                     </ul>
                 </div>
                 <div>
@@ -658,7 +630,7 @@
                     <span class="mx-2 text-gray-600">|</span>
                     <a href="terms-of-service" target="_blank" rel="noopener" class="text-white hover:text-brand-orange transition-colors">Terms of Service</a>
                 </div>
-                <p>&copy; 2024 BNB Mastery. All rights reserved.</p>
+                <p>&copy; 2025 BNB Mastery. All rights reserved.</p>
             </div>
         </div>
     </footer>
