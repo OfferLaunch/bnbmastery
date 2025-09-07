@@ -37,10 +37,28 @@ body {
     scroll-behavior: smooth;
 }
 
+/* Hero Section Background */
+.gradient-bg {
+    background: linear-gradient(135deg, #111F46 0%, #1a2a5e 50%, #0f172a 100%);
+    position: relative;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #FA7D28 0%, #FF5715 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
 /* Smooth scrolling - optimized for immediate response */
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 80px; /* Account for fixed header */
+    scroll-padding-top: 120px; /* Account for floating navigation */
+}
+
+/* Ensure hero section has proper spacing */
+#home {
+    padding-top: 8rem !important; /* 128px - space for floating navigation */
 }
 
 /* Custom animations */
