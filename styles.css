@@ -225,4 +225,136 @@ html {
 .nav-link:focus {
     outline: none;
     box-shadow: none;
+}
+
+/* Mobile Menu Styles */
+#mobile-menu {
+    transition: opacity 0.3s ease;
+}
+
+#mobile-menu-panel {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#mobile-menu:not(.hidden) #mobile-menu-panel {
+    transform: translateX(0);
+}
+
+/* Mobile menu button animations */
+#mobile-menu-button {
+    transition: all 0.3s ease;
+}
+
+#mobile-menu-button:hover {
+    transform: scale(1.1);
+}
+
+#mobile-menu-button:active {
+    transform: scale(0.95);
+}
+
+/* Mobile menu overlay */
+#mobile-menu-overlay {
+    backdrop-filter: blur(4px);
+    transition: opacity 0.3s ease;
+}
+
+/* Mobile menu links */
+#mobile-menu nav a {
+    position: relative;
+    padding: 12px 0;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+#mobile-menu nav a:hover {
+    background-color: rgba(250, 125, 40, 0.1);
+    padding-left: 12px;
+}
+
+#mobile-menu nav a:active {
+    transform: scale(0.98);
+}
+
+/* Mobile menu close button */
+#mobile-menu-close {
+    transition: all 0.3s ease;
+}
+
+#mobile-menu-close:hover {
+    transform: scale(1.1) rotate(90deg);
+}
+
+#mobile-menu-close:active {
+    transform: scale(0.95) rotate(90deg);
+}
+
+/* Mobile menu CTA button */
+#mobile-menu .btn-primary {
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(250, 125, 40, 0.3);
+}
+
+#mobile-menu .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(250, 125, 40, 0.4);
+}
+
+#mobile-menu .btn-primary:active {
+    transform: translateY(0);
+}
+
+/* Prevent body scroll when mobile menu is open */
+body.mobile-menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+}
+
+/* Mobile menu slide-in animation */
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+/* Mobile menu icon transitions */
+#menu-icon, #close-icon {
+    transition: all 0.3s ease;
+}
+
+/* Focus styles for accessibility */
+#mobile-menu-button:focus,
+#mobile-menu-close:focus {
+    outline: 2px solid var(--brand-orange);
+    outline-offset: 2px;
+}
+
+/* Mobile menu responsive adjustments */
+@media (max-width: 480px) {
+    #mobile-menu-panel {
+        width: 100%;
+        max-width: 320px;
+    }
+    
+    #mobile-menu nav a {
+        font-size: 1.1rem;
+        padding: 14px 0;
+    }
 } 
